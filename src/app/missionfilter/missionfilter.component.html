@@ -1,1 +1,8 @@
-<p>missionfilter works!</p>
+<!-- <p>missionfilter works!</p> -->
+
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Filter by Year</mat-label>
+        <input matInput [(ngModel)]="selectedYear" (ngModelChange)="onYearChange()" placeholder="Enter launch year">
+    </mat-form-field>
+</div>

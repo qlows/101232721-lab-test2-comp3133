@@ -1,1 +1,9 @@
-<p>missiondetails works!</p>
+<!-- <p>missiondetails works!</p> -->
+
+<div *ngIf="mission">
+    <h2>{{ mission.mission_name }} Details</h2>
+    <p>Flight Number: {{  mission.flight_number }}</p>
+    <p>Launch Year: {{  mission.launch_year }}</p>
+    <p>Details: {{ mission.details }}</p>
+    <img [src]="mission.mission_patch_small" alt="Mission Patch">
+</div>
