@@ -12,7 +12,12 @@
 <app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
 <div class="missions-container">
   <div *ngFor="let mission of missions; let i = index" class="mission-card">
-    <img [src]="mission.mission_patch_small || 'assets/placeholder.png'" alt="Mission Patch">
+    <ng-container *ngIf="mission.links.mission_patch; else defaultImage">
+      <img [src]="mission.links.mission_patch" alt="Mission Patch">
+    </ng-container>
+    <ng-template #defaultImage>
+      <img src="assets/placeholder.png" alt="Mission Patch">
+    </ng-template>
     <div class="mission-details">
       <h4>{{ mission.mission_name }}</h4>
       <p>Launch Year: {{ mission.launch_year }}</p>
@@ -21,6 +26,7 @@
     </div>
   </div>
 </div>
+
 
 
 
