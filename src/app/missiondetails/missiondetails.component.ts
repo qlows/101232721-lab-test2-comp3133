@@ -7,7 +7,7 @@ import { Mission } from '../mission';
   styleUrls: ['./missiondetails.component.css']
 })
 export class MissiondetailsComponent implements OnInit {
-  @Input() mission: Mission;
+  @Input() mission: Mission | null = null;
 
   constructor() { }
 

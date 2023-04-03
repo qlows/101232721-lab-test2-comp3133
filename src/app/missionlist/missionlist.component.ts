@@ -8,7 +8,7 @@ import { MissionService } from '../mission.service';
   styleUrls: ['./missionlist.component.css']
 })
 export class MissionlistComponent implements OnInit {
-  missions: Mission[];
+  missions: Mission[] = [];
 
   constructor(private missionService: MissionService) { }
 

@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class MissionfilterComponent implements OnInit {
   @Output() yearSelected = new EventEmitter<string>();
-  selectedYear: string;
+  selectedYear: string = '';
 
   constructor() { }
 
