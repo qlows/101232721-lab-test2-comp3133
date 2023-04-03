@@ -11,8 +11,9 @@ export class MissionService {
 
   constructor(private http: HttpClient) { }
 
-  getMissions(): Observable<Mission[]> {
-    return this.http.get<Mission[]>(this.apiURL);
+  getMissions(year?: string): Observable<Mission[]> {
+    const url = year ? `${this.apiURL}?launch_year=${year}` : this.apiURL;
+    return this.http.get<Mission[]>(url);
   }
 
   getMissionsByYear(year: string): Observable<Mission[]> {

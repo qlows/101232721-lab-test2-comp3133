@@ -13,6 +13,14 @@ export class MissionlistComponent implements OnInit {
   constructor(private missionService: MissionService) { }
 
   ngOnInit(): void {
-    this.missionService.getMissions().subscribe(missions => this.missions = missions);
+    this.getMissions();
+  }
+
+  getMissions(year?: string): void {
+    this.missionService.getMissions(year).subscribe(missions => this.missions = missions);
+  }
+
+  onYearSelected(year: string): void {
+    this.getMissions(year);
   }
 }
