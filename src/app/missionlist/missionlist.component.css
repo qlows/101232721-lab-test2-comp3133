@@ -9,7 +9,7 @@
   .mission-card {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: #e9dede;
     border-radius: 5px;
     padding: 20px;
     max-width: 400px;
@@ -28,9 +28,19 @@
   
   .mission-details h4 {
     margin: 0 0 10px;
+    font-weight: bold;
+    
   }
   
   .mission-details p {
-    margin: 0;
+    margin: 1em;
   }
   
+  button{
+    background-color: #d88c8c;
+    border: solid 2px black;
+    padding: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 1em;
+  }
