@@ -1,10 +1,26 @@
 <!-- <p>missionlist works!</p>-->
 
-<app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
+<!-- <app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
 <div *ngFor="let mission of missions">
   <p>{{ mission.mission_name }}</p>
   <p>{{ mission.launch_year }}</p>
   <p>{{ mission.details }}</p>
   <img [src]="mission.mission_patch_small" alt="Mission Patch">
   <app-missiondetails [mission]="mission"></app-missiondetails>
+</div> -->
+
+<app-missionfilter (yearSelected)="onYearSelected($event)"></app-missionfilter>
+<div class="missions-container">
+  <div *ngFor="let mission of missions; let i = index" class="mission-card">
+    <img [src]="mission.mission_patch_small || 'assets/placeholder.png'" alt="Mission Patch">
+    <div class="mission-details">
+      <h4>{{ mission.mission_name }}</h4>
+      <p>Launch Year: {{ mission.launch_year }}</p>
+      <p>{{ mission.details }}</p>
+      <button routerLink="/missiondetails/{{ mission.flight_number }}">View Details</button>
+    </div>
+  </div>
 </div>
+
+
+

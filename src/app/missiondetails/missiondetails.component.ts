@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Mission } from '../mission';
+import { ActivatedRoute } from '@angular/router';
+import { MissionService } from '../mission.service';
+
 
 @Component({
   selector: 'app-missiondetails',
@@ -7,11 +10,17 @@ import { Mission } from '../mission';
   styleUrls: ['./missiondetails.component.css']
 })
 export class MissiondetailsComponent implements OnInit {
-  @Input() mission: Mission | null = null;
+  mission: Mission | null = null;
 
-  constructor() { }
+  constructor(private missionService: MissionService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getMission();
+  }
+
+  getMission(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.missionService.getMission(id).subscribe(mission => this.mission = mission);
   }
 
 }
